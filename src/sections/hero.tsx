@@ -1,16 +1,28 @@
 import { useState } from "react";
-import { ArrowRight, Terminal, Cpu, Zap, ArrowDown, Check, Layers, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  Terminal,
+  Cpu,
+  Zap,
+  ArrowDown,
+  Check,
+  Layers,
+  Sparkles,
+} from "lucide-react";
 import { BRAND_NAME } from "@/lib/constants";
 
 export default function Hero() {
   const [activeTab, setActiveTab] = useState<"visual" | "terminal">("visual");
 
   return (
-    <section id="hero" className="relative w-full max-w-7xl px-4 pt-12 pb-20 sm:px-6 lg:px-8">
+    <section
+      id="hero"
+      className="relative w-full max-w-7xl px-4 pb-20 pt-12 sm:px-6 lg:px-8"
+    >
       {/* Decorative ambient glow */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-10 left-1/2 -z-10 h-96 w-96 -translate-x-1/2 rounded-full bg-orange-500/15 blur-3xl"
+        className="bg-orange-500/15 pointer-events-none absolute -top-10 left-1/2 -z-10 h-96 w-96 -translate-x-1/2 rounded-full blur-3xl"
       />
 
       <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8 xl:gap-12">
@@ -36,10 +48,12 @@ export default function Hero() {
 
           {/* Supporting Description */}
           <p className="mt-6 text-base leading-relaxed text-zinc-400 sm:text-lg">
-            Multi-turn AI agents continuously accumulate conversation history, bloated tool outputs,
-            and intermediate scratchpads. <strong className="text-zinc-200">{BRAND_NAME}</strong>{" "}
-            automatically compresses, deduplicates, and prunes unnecessary tokens before model
-            calls—slashing inference costs by up to 80% while preserving the exact knowledge agents need to succeed.
+            Multi-turn AI agents continuously accumulate conversation history,
+            bloated tool outputs, and intermediate scratchpads.{" "}
+            <strong className="text-zinc-200">{BRAND_NAME}</strong>{" "}
+            automatically compresses, deduplicates, and prunes unnecessary
+            tokens before model calls—slashing inference costs by up to 80%
+            while preserving the exact knowledge agents need to succeed.
           </p>
 
           {/* CTAs */}
@@ -66,11 +80,15 @@ export default function Hero() {
               <p className="text-xs text-zinc-400">Avg. Token Reduction</p>
             </div>
             <div>
-              <p className="font-display text-2xl font-bold text-white">&lt;6ms</p>
+              <p className="font-display text-2xl font-bold text-white">
+                &lt;6ms
+              </p>
               <p className="text-xs text-zinc-400">Pipeline Latency</p>
             </div>
             <div>
-              <p className="font-display text-2xl font-bold text-orange-400">Zero</p>
+              <p className="font-display text-2xl font-bold text-orange-400">
+                Zero
+              </p>
               <p className="text-xs text-zinc-400">Quality Degradation</p>
             </div>
           </div>
@@ -89,12 +107,12 @@ export default function Hero() {
                   agent_pipeline_runtime.ts
                 </span>
               </div>
-              <div className="flex items-center space-x-1 rounded-lg bg-zinc-900 p-0.5 border border-zinc-800">
+              <div className="flex items-center space-x-1 rounded-lg border border-zinc-800 bg-zinc-900 p-0.5">
                 <button
                   onClick={() => setActiveTab("visual")}
                   className={`rounded px-2.5 py-1 text-xs font-medium transition-colors ${
                     activeTab === "visual"
-                      ? "bg-orange-500/20 text-orange-400 border border-orange-500/30"
+                      ? "border border-orange-500/30 bg-orange-500/20 text-orange-400"
                       : "text-zinc-400 hover:text-white"
                   }`}
                 >
@@ -104,7 +122,7 @@ export default function Hero() {
                   onClick={() => setActiveTab("terminal")}
                   className={`rounded px-2.5 py-1 text-xs font-medium transition-colors ${
                     activeTab === "terminal"
-                      ? "bg-orange-500/20 text-orange-400 border border-orange-500/30"
+                      ? "border border-orange-500/30 bg-orange-500/20 text-orange-400"
                       : "text-zinc-400 hover:text-white"
                   }`}
                 >
@@ -115,19 +133,19 @@ export default function Hero() {
 
             {/* Window Content */}
             {activeTab === "visual" ? (
-              <div className="p-5 sm:p-6 space-y-4 font-mono text-xs">
+              <div className="space-y-4 p-5 font-mono text-xs sm:p-6">
                 {/* Step 1: Raw Context */}
                 <div className="rounded-xl border border-zinc-800 bg-zinc-950/70 p-4">
                   <div className="flex items-center justify-between">
-                    <span className="flex items-center space-x-2 text-zinc-400 font-semibold">
+                    <span className="flex items-center space-x-2 font-semibold text-zinc-400">
                       <Layers className="h-4 w-4 text-zinc-500" />
                       <span>1. Raw Accumulated Context</span>
                     </span>
-                    <span className="rounded bg-red-950/50 px-2 py-0.5 text-[11px] font-medium text-red-400 border border-red-900/50">
+                    <span className="rounded border border-red-900/50 bg-red-950/50 px-2 py-0.5 text-[11px] font-medium text-red-400">
                       124,500 Tokens
                     </span>
                   </div>
-                  <div className="mt-2 text-zinc-400 space-y-1 text-[11px]">
+                  <div className="mt-2 space-y-1 text-[11px] text-zinc-400">
                     <div className="flex justify-between">
                       <span>• Conversation turns (x42):</span>
                       <span className="text-zinc-400">38,200 tok</span>
@@ -153,28 +171,32 @@ export default function Hero() {
                 </div>
 
                 {/* Step 2: Essential Context */}
-                <div className="rounded-xl border border-orange-500/30 bg-orange-950/15 p-4 shadow-inner shadow-orange-500/5">
+                <div className="bg-orange-950/15 rounded-xl border border-orange-500/30 p-4 shadow-inner shadow-orange-500/5">
                   <div className="flex items-center justify-between">
-                    <span className="flex items-center space-x-2 text-orange-200 font-semibold">
+                    <span className="flex items-center space-x-2 font-semibold text-orange-200">
                       <Zap className="h-4 w-4 text-orange-400" />
                       <span>2. Essential Distilled Context</span>
                     </span>
-                    <span className="rounded bg-orange-500/20 px-2 py-0.5 text-[11px] font-bold text-orange-300 border border-orange-500/40">
+                    <span className="rounded border border-orange-500/40 bg-orange-500/20 px-2 py-0.5 text-[11px] font-bold text-orange-300">
                       18,400 Tokens (-85.2%)
                     </span>
                   </div>
-                  <div className="mt-2 text-zinc-300 space-y-1 text-[11px]">
+                  <div className="mt-2 space-y-1 text-[11px] text-zinc-300">
                     <div className="flex items-center space-x-1.5 text-emerald-400">
                       <Check className="h-3 w-3" />
                       <span>Deduplicated conversation history</span>
                     </div>
                     <div className="flex items-center space-x-1.5 text-emerald-400">
                       <Check className="h-3 w-3" />
-                      <span>Compressed JSON tool schemas to relevant entity keys</span>
+                      <span>
+                        Compressed JSON tool schemas to relevant entity keys
+                      </span>
                     </div>
                     <div className="flex items-center space-x-1.5 text-emerald-400">
                       <Check className="h-3 w-3" />
-                      <span>Preserved task goals, schemas &amp; active constraints</span>
+                      <span>
+                        Preserved task goals, schemas &amp; active constraints
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -183,33 +205,62 @@ export default function Hero() {
                 <div className="flex items-center justify-between rounded-xl border border-zinc-800 bg-zinc-900/60 px-4 py-3 text-zinc-300">
                   <div className="flex items-center space-x-2.5">
                     <Cpu className="h-4 w-4 text-orange-400" />
-                    <span className="text-xs font-medium">3. Delivered to LLM</span>
+                    <span className="text-xs font-medium">
+                      3. Delivered to LLM
+                    </span>
                   </div>
                   <div className="text-right">
-                    <span className="text-xs font-semibold text-white">Inference Cost: </span>
-                    <span className="text-xs text-emerald-400 font-bold">$0.09</span>
-                    <span className="text-xs text-zinc-400 line-through ml-1.5">$0.62</span>
+                    <span className="text-xs font-semibold text-white">
+                      Inference Cost:{" "}
+                    </span>
+                    <span className="text-xs font-bold text-emerald-400">
+                      $0.09
+                    </span>
+                    <span className="ml-1.5 text-xs text-zinc-400 line-through">
+                      $0.62
+                    </span>
                   </div>
                 </div>
               </div>
             ) : (
-              <div className="p-4 sm:p-5 font-mono text-[11px] leading-relaxed text-zinc-300 bg-zinc-950/80 overflow-x-auto">
-                <p className="text-zinc-400"># Intercepting Agent Call turn_id=892</p>
-                <p className="text-orange-400">$ parsim optimize --stream --policy=balanced</p>
-                <p className="text-zinc-300 mt-2">[INFO] Ingestion: 124,500 raw tokens detected</p>
-                <p className="text-zinc-400">[ANALYZE] 64,800 tokens from tool: bash_executor (92% repetitive)</p>
-                <p className="text-zinc-400">[ANALYZE] 38,200 tokens from history (18 resolved intents)</p>
-                <p className="text-emerald-400">[PRUNE] Eliminated 106,100 redundant tokens in 4.2ms</p>
-                <p className="text-emerald-300">[OUTPUT] Retained 18,400 essential tokens (entropy score: 0.94)</p>
-                <p className="text-orange-300 mt-2">&gt;&gt; Dispatching to model: claude-3-5-sonnet-20241022</p>
-                <p className="text-zinc-400">[STATUS] TTFT: 310ms (was 2,840ms) | Savings: $0.53 / call</p>
+              <div className="overflow-x-auto bg-zinc-950/80 p-4 font-mono text-[11px] leading-relaxed text-zinc-300 sm:p-5">
+                <p className="text-zinc-400">
+                  # Intercepting Agent Call turn_id=892
+                </p>
+                <p className="text-orange-400">
+                  $ parsim optimize --stream --policy=balanced
+                </p>
+                <p className="mt-2 text-zinc-300">
+                  [INFO] Ingestion: 124,500 raw tokens detected
+                </p>
+                <p className="text-zinc-400">
+                  [ANALYZE] 64,800 tokens from tool: bash_executor (92%
+                  repetitive)
+                </p>
+                <p className="text-zinc-400">
+                  [ANALYZE] 38,200 tokens from history (18 resolved intents)
+                </p>
+                <p className="text-emerald-400">
+                  [PRUNE] Eliminated 106,100 redundant tokens in 4.2ms
+                </p>
+                <p className="text-emerald-300">
+                  [OUTPUT] Retained 18,400 essential tokens (entropy score:
+                  0.94)
+                </p>
+                <p className="mt-2 text-orange-300">
+                  &gt;&gt; Dispatching to model: claude-3-5-sonnet-20241022
+                </p>
+                <p className="text-zinc-400">
+                  [STATUS] TTFT: 310ms (was 2,840ms) | Savings: $0.53 / call
+                </p>
               </div>
             )}
 
             {/* Disclaimer Footer */}
             <div className="border-t border-zinc-800/80 bg-[#09090b] px-4 py-2.5 text-center">
               <span className="text-[11px] text-zinc-400">
-                * Illustrative demonstration metrics for a representative multi-turn agent workflow.
+                * Illustrative demonstration metrics for a representative
+                multi-turn agent workflow.
               </span>
             </div>
           </div>
